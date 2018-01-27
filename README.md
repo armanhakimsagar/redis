@@ -56,7 +56,6 @@ download redis in project directory :
 
 C:\xampp\project > composer require predis/predis
 
-<xmp>
 
 
 <?php 
@@ -138,7 +137,8 @@ C:\xampp\project > composer require predis/predis
    }
 ?>
 
-</xmp>
+
+
 
 <h1> insert data </h1>
 
