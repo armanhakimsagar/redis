@@ -210,7 +210,7 @@ Redis :
 4. Data storage in RAM allows very fast read/write operations. Furthermore, data is persisted to a disk and in the case of a 
    server restart can be restored back to RAM for quick access
    
-5. 1 Million Keys – String Value pairs use 100MB of memory
+5. 1 Million Keys â€“ String Value pairs use 100MB of memory
 
 
 
@@ -221,4 +221,15 @@ MongoDB :
 
 2. Documents are saved in a BSON format (binary JSON)
 
-3. 
+
+
+Big Data :
+
+Big data is a blanket term for the non-traditional strategies and technologies needed to gather, organize, process, and gather insights from large datasets.
+
+The general categories of activities involved with big data processing are:
+
+Ingesting data into the system
+Persisting the data in storage
+Computing and Analyzing data
+Visualizing the results
