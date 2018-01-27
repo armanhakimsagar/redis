@@ -1,0 +1,224 @@
+Step 1 :
+
+**
+
+download redis from :
+
+https://github.com/MicrosoftArchive/redis/releases
+
+
+Step 2 :
+
+**
+
+Now open C:\Program Files\Redis\redis-cli.exe file
+
+
+Step 3 :
+
+**
+
+check installation is ok or not ?
+
+127.0.0.1:6379>ping ok
+
+
+
+Step 4 :
+
+**
+
+insert database by :
+
+set name arman
+
+
+Step 5 :
+
+**
+
+view database by :
+
+get name
+
+
+Step 6 :
+
+**
+
+
+
+download redis in project directory :
+
+C:\xampp\project > composer require predis/predis
+
+
+
+
+<?php 
+
+	// link redis files
+	
+	require('vendor/autoload.php');
+
+
+	// database connection
+
+	$redis = new Predis\Client(); 
+	$redis->connect('127.0.0.1', 6379); 
+    
+
+
+	// insert query 
+
+	if(isset($_POST['submit'])){
+
+		$id = $_POST['id'];
+
+		$name = $_POST['name'];
+
+
+	    $insert = $redis->set($id,json_encode(
+
+						array(
+							"name" => "$name"
+						)
+									   
+					));
+
+	    if($insert){
+	    	echo "inserted";
+	    }
+
+	}
+
+
+
+
+   // view
+
+   if(isset($_POST['view'])){
+
+   		$id = $_POST['id'];
+
+   		// bring expected data
+
+   		$response = $redis->get($id);
+
+   		// json decode after bring data
+
+   		$response = json_decode($response);
+
+   		echo $response->name;
+ 
+   }
+
+
+
+
+   // delete
+
+   if(isset($_POST['delete'])){
+
+   		$id = $_POST['id'];
+
+   		// bring expected data
+
+   		$delete = $redis->DEL($id);
+
+   		 if($delete){
+	    	echo "delete";
+	    }
+	 
+ 
+   }
+?>
+
+
+
+<h1> insert data </h1>
+
+
+<form method="post">
+	id : <input type="text" name="id">
+	name : <input type="text" name="name">
+	<input type="submit" name="submit" value="submit data"> 
+</form>
+
+
+
+
+<h1>Search after insert data </h1>
+
+<form method="post">
+	id : <input type="text" name="id">
+	<input type="submit" name="view" value="Search Data By ID"> 
+</form>
+
+
+
+<h1>Delete by id </h1>
+
+<form method="post">
+	id : <input type="text" name="id">
+	<input type="submit" name="delete" value="Delete Data By ID"> 
+</form>
+
+
+
+
+
+Benifits :
+
+1. NoSQL databases were created in response to the limitations of traditional relational database technology
+
+2. able to handle Large volumes of structured, semi-structured, and unstructured data
+
+3. Object-oriented programming that is easy to use and flexible
+
+4. Non-relational and schema-less data model
+
+5. Low latency and high performance
+
+6. Highly scalable
+
+
+
+
+NoSQL Database Types :
+
+1. Document databases pair each key with a complex data structure known as a document. 
+   Documents can contain many different key-value pairs, or key-array pairs, or even nested documents
+   
+2. Graph stores are used to store information about networks of data, such as social connections. 
+	Graph stores include Neo4J and Giraph.
+	
+3. Key-value stores are the simplest NoSQL databases. Every single item in the database is stored as an 
+	attribute name (or 'key'), together with its value
+	
+
+	
+	
+Redis :
+
+1. Redis, REmote DIctionary Server
+
+2. keys can contain strings, hashes, lists, sets and sorted sets.
+
+3. Redis allows a user to set an expiration time for key-value pairs and requires all stored data to fit into a server RAM
+
+4. Data storage in RAM allows very fast read/write operations. Furthermore, data is persisted to a disk and in the case of a 
+   server restart can be restored back to RAM for quick access
+   
+5. 1 Million Keys – String Value pairs use 100MB of memory
+
+
+
+
+MongoDB :
+
+1. MongoDB is document storage designed for high performance, high availability, and with automatic scaling
+
+2. Documents are saved in a BSON format (binary JSON)
+
+3. 
