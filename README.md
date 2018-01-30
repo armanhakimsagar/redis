@@ -20,10 +20,18 @@ Now open C:\Program Files\Redis\redis-cli.exe file
 
 Step 3 :
 
-**
 
+**
+cmd > npm install redis
 check installation is ok or not ?
 
+
+require('vendor/autoload.php');
+	
+// database connection
+$redis = new Predis\Client(); 
+$redis->connect('127.0.0.1', 6379); 
+	
 127.0.0.1:6379>ping ok
 
 
