@@ -22,7 +22,10 @@ Step 3 :
 
 
 **
+cmd > npm init
+
 cmd > npm install redis
+
 check installation is ok or not ?
 
 
